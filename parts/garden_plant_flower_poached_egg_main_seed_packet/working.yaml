@@ -1,0 +1,89 @@
+classification: garden
+classification_capital: Garden
+classification_first_letter: g
+classification_first_letter_upper: G
+classification_upper: GARDEN
+color: poached_egg
+color_capital: Poached Egg
+color_first_letter: p
+color_first_letter_upper: P
+color_upper: POACHED_EGG
+description_extra: seed_packet
+description_extra_capital: Seed Packet
+description_extra_first_letter: s
+description_extra_first_letter_upper: S
+description_extra_upper: SEED_PACKET
+description_main: main
+description_main_capital: Main
+description_main_first_letter: m
+description_main_first_letter_upper: M
+description_main_upper: MAIN
+description_only_numbers: ''
+description_only_numbers_short: ' '
+description_or_color: 'P '
+description_or_color_upper: 'P '
+directory: parts/garden_plant_flower_poached_egg_main_seed_packet
+distributor_sutton_seeds: '142008'
+distributors: []
+id: garden_plant_flower_poached_egg_main_seed_packet
+id_no_class: plant_flower_poached_egg_main_seed_packet
+id_no_size: poached_egg_main_seed_packet
+id_no_type: flower_poached_egg_main_seed_packet
+link_distributor_sutton_seeds: https://www.suttons.co.uk/SUDM2/lupin-gallery-mix-seeds_mh-623
+link_github: https://github.com/oomlout/oomlout_oomp_version_1_messy/tree/main/parts/garden_plant_flower_poached_egg_main_seed_packet
+link_main: https://github.com/oomlout/oomlout_oomp_version_1_messy/tree/main/parts/garden_plant_flower_poached_egg_main_seed_packet
+link_redirect: https://github.com/oomlout/oomlout_oomp_version_1_messy/tree/main/parts/garden_plant_flower_poached_egg_main_seed_packet
+manufacturer: ''
+manufacturer_capital: ''
+manufacturer_first_letter: ''
+manufacturer_first_letter_upper: ''
+manufacturer_upper: ''
+manufacturers: []
+markdown_full: '[garden_plant_flower_poached_egg_main_seed_packet](none)<br>[](none)<br>[Garden
+    Plant Flower Poached Egg Main Seed Packet](none)<br><br>'
+markdown_short: '[garden_plant_flower_poached_egg_main_seed_packet](none)<br><br>'
+md5: a2ba0e54111d7ff5f593f44b12f061c1
+md5_10: a2ba0e5411
+md5_10_upper: A2BA0E5411
+md5_5: a2ba0
+md5_5_upper: A2BA0
+md5_6: a2ba0e
+md5_6_alpha: 6ckr2
+md5_6_alpha_upper: 6CKR2
+md5_6_upper: A2BA0E
+name: Garden Plant Flower Poached Egg Main Seed Packet
+name_no_class: Plant Flower Poached Egg Main Seed Packet
+name_no_size: Poached Egg Main Seed Packet
+name_no_size_short: Poached Egg Main Seed Packet
+name_no_type: Flower Poached Egg Main Seed Packet
+oomp_key: oomp_garden_plant_flower_poached_egg_main_seed_packet
+oomp_word: violin spaghetti cupid
+oomp_word_emoji: ':violin: :spaghetti: :cupid:'
+oomp_word_emoji_list:
+- ':violin:'
+- ':spaghetti:'
+- ':cupid:'
+oomp_word_list:
+- violin
+- spaghetti
+- cupid
+part_number: ''
+part_number_capital: ''
+part_number_first_letter: ''
+part_number_first_letter_upper: ''
+part_number_upper: ''
+short_code: ''
+short_code_upper: ''
+short_name: ''
+size: flower
+size_capital: Flower
+size_first_letter: f
+size_first_letter_upper: F
+size_only_numbers: ''
+size_only_numbers_no_zeros: ''
+size_upper: FLOWER
+type: plant
+type_capital: Plant
+type_first_letter: p
+type_first_letter_upper: P
+type_upper: PLANT
