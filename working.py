@@ -108,7 +108,10 @@ def run_job(**kwargs):
     width_pixels_available = width_minimum_tiles * width_tile_pixel
     width_pixels_needed = width_pixel    
     width_extra_pixels = width_pixels_available - width_pixels_needed
-    width_extra_pixels_per_tile = width_extra_pixels / (width_minimum_tiles-1)
+    if width_minimum_tiles <= 1:
+        width_extra_pixels_per_tile = 0
+    else:
+        width_extra_pixels_per_tile = width_extra_pixels / (width_minimum_tiles-1)
     width_extra_ratio = width_extra_pixels_per_tile / width_tile_pixel
     overlap_width = width_extra_ratio
     
