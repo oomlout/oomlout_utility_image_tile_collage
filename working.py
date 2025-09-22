@@ -19,6 +19,7 @@ def main(**kwargs):
     height = kwargs.get('height', 400)
     width_tile = kwargs.get('width_tile', 100)
     height_tile = kwargs.get('height_tile', 150)
+    load_working_yaml = kwargs.get('load_working_yaml', False)
     
     jobs = []
 
@@ -45,6 +46,18 @@ def main(**kwargs):
         directory_image = os.path.dirname(file_image_source)
         directory_output_local = f"{directory_image}/{directory_output}"
         job["directory_output"] = directory_output_local
+        if load_working_yaml:
+            yaml_file = f'{directory_single}/working.yaml'
+            if os.path.exists(yaml_file):
+                import yaml
+                with open(yaml_file, 'r') as f:
+                    yaml_data = yaml.safe_load(f)
+                #add directory for some keys
+                keys = ["file_input", "file_image_source"]
+                for key in keys:
+                    if key in yaml_data:
+                        yaml_data[key] = f'{directory_iterate}/{directory}/{yaml_data[key]}'
+                job.update(yaml_data)
         jobs.append(job)
     elif directory_iterate != '':
         directories = os.listdir(directory_iterate)
@@ -54,6 +67,18 @@ def main(**kwargs):
                 job = copy.deepcopy(job_default)
                 job['file_image_source'] = file_image_source
                 job["directory_output"] = f'{directory_iterate}/{directory}/{directory_output}'
+                if load_working_yaml:
+                    yaml_file = f'{directory_iterate}/{directory}/working.yaml'
+                    if os.path.exists(yaml_file):
+                        import yaml
+                        with open(yaml_file, 'r') as f:
+                            yaml_data = yaml.safe_load(f)
+                        #add directory for some keys
+                        keys = ["file_input", "file_image_source"]
+                        for key in keys:
+                            if key in yaml_data:
+                                yaml_data[key] = f'{directory_iterate}/{directory}/{yaml_data[key]}'
+                        job.update(yaml_data)
                 jobs.append(job)
     #project_name is the name of the input file no directory or extension, and the one previous directory
     
@@ -326,7 +351,9 @@ if __name__ == '__main__':
     argparser.add_argument('--width_tile', '-wt', type=int, default=100, help='width_tile in mm')
     #--height_tile -ht 150
     argparser.add_argument('--height_tile', '-ht', type=int, default=150, help='height_tile in mm')
-    #
+    # loading_working_yaml -lwy boolean
+    argparser.add_argument('--loading_working_yaml', '-lwy', type=bool, default=False, help='loading_working_yaml')
+
     args = argparser.parse_args()
     kwargs = {}
     # update kwargs with args
