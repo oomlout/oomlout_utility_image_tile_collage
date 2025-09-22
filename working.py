@@ -120,7 +120,10 @@ def run_job(**kwargs):
     height_pixels_available = height_minimum_tiles * height_tile_pixel
     height_pixels_needed = height_pixel
     height_extra_pixels = height_pixels_available - height_pixels_needed
-    height_extra_pixels_per_tile = height_extra_pixels / (height_minimum_tiles-1)
+    if height_minimum_tiles <= 1:
+        height_extra_pixels_per_tile = 0
+    else:
+        height_extra_pixels_per_tile = height_extra_pixels / (height_minimum_tiles-1)
     height_extra_ratio = height_extra_pixels_per_tile / height_tile_pixel
     overlap_height = height_extra_ratio
     
@@ -183,7 +186,7 @@ def run_job(**kwargs):
         for col in range(int(width_number_of_tiles)):
             x = col * width_tile_pixel * (1 - overlap_width)
             y = row * height_tile_pixel * (1 - overlap_height)
-            if row % 2 == 1:
+            if row % 2 == 1 and width_number_of_tiles > 1:
                 x += -width_tile_pixel / 2
             tile = {}
             tile['x_pixel'] = x
@@ -192,16 +195,17 @@ def run_job(**kwargs):
             tile['row']= row + 1            
             tiles.append(tile)
             #add extra tile for the even rows            
-            if row % 2 == 1 and col == width_number_of_tiles - 1:
-                x = (col + 1) * width_tile_pixel * (1 - overlap_width)
-                y = row * height_tile_pixel * (1 - overlap_height)
-                tile = {}
-                tile['x_pixel'] = x - width_tile_pixel / 2
-                tile['y_pixel'] = y
-                tile['column']= col + 1 + 1
-                tile['row']= row + 1
-                #if row is odd and column doesn't qual 1 then add the tile                
-                tiles.append(tile)
+            if width_number_of_tiles > 1:
+                if row % 2 == 1 and col == width_number_of_tiles - 1:
+                    x = (col + 1) * width_tile_pixel * (1 - overlap_width)
+                    y = row * height_tile_pixel * (1 - overlap_height)
+                    tile = {}
+                    tile['x_pixel'] = x - width_tile_pixel / 2
+                    tile['y_pixel'] = y
+                    tile['column']= col + 1 + 1
+                    tile['row']= row + 1
+                    #if row is odd and column doesn't qual 1 then add the tile                
+                    tiles.append(tile)
                 
                 
 
