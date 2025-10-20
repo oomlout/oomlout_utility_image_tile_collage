@@ -11,6 +11,20 @@ import copy
 #  run this script
 
 def main(**kwargs):
+    #please display the wargs parameters in a lovely way with formatting and ***** boxes etc
+    print('***** Starting Image Tiling Process *****')
+    print('=========================================')
+    for key, value in kwargs.items():
+        string = f'||    {key:<15}: {value}'
+        #make the same length and add ||
+        length = 80
+        string = string + ' ' * (length - len(string)) + '||'
+        print(string)
+    print('=========================================')
+    print(f'Total Parameters: {len(kwargs)}')
+
+
+
     file_input = kwargs.get('file_input', '')
     directory_output = kwargs.get('directory_output', 'image_tiled')
     directory_single = kwargs.get('directory_single', '')
@@ -120,6 +134,7 @@ def run_job(**kwargs):
 
     #overwrite_test_direcrtory current directory \image_tiled
     overwrite_test_direcrtory = output_directory
+    just_output_directory = os.path.basename(output_directory)
 
     if not os.path.exists(overwrite_test_direcrtory) or overwrite:
         print(f'starting job for output directory: {output_directory}')
@@ -127,6 +142,17 @@ def run_job(**kwargs):
         file_image_source = kwargs.get('image_source', '')
         
 
+        #reprint kwargs here like at the begining
+        print(f'    ***** Starting Image Tiling For {just_output_directory} *****')
+        print('    =========================================')
+        for key, value in kwargs.items():
+            string = f'    ||    {key:<15}: {value}'
+            #make the same length and add ||
+            length = 84
+            string = string + ' ' * (length - len(string)) + '||'
+            print(string)
+        print('    =========================================')
+        print(f'    Total Parameters: {len(kwargs)}')
 
         #1200 dpi
         #pixels_per_inches = 1200
@@ -392,10 +418,14 @@ if __name__ == '__main__':
     args = argparser.parse_args()
     kwargs = {}
     # update kwargs with args
+
+        
     kwargs.update(vars(args))
 
     
-    
-    
+    #test
+    kwargs["directory_iterate"] = r"C:\od\OneDrive\docs\household_decorative_photo_enlargement\parts"
+    kwargs["image_source"] = "image_source"
+    kwargs["load_working_yaml"] = True
     
     main(**kwargs)
